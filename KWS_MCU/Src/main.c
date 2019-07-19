@@ -197,7 +197,7 @@ int main(void)
 	HAL_Delay(20);
 	LCD_SetRotation(1);
 	LCD_FillScreen(BLACK);
-	LCD_Printf("! Hello !");
+	//LCD_Printf("! Hello !");
 	
 	// Enabling ADC and DMA timer
 	HAL_TIM_Base_Start(&htim2);
