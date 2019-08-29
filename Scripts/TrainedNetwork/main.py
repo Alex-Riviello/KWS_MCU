@@ -34,7 +34,7 @@ if __name__ == "__main__":
             batch_size=min(len(test_set), 16),
             shuffle=True,
             collate_fn=test_set.collate_fn)
-        model = md.TCResNet14()
+        model = md.TCResNet8()
         model.load(config["output_file"])
         util.evaluate(config, model, test_loader)
     

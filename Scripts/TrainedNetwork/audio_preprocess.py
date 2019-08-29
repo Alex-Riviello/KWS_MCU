@@ -51,7 +51,7 @@ class SpeechDataset(data.Dataset):
         self._file_cache = SimpleCache(config["cache_size"])
         n_unk = len(list(filter(lambda x: x == 1, self.audio_labels)))
         self.n_silence = int(self.silence_prob * (len(self.audio_labels) - n_unk))
-        self.audio_processor = AudioPreprocessor(n_mels=config["n_mels"], n_dct_filters=config["n_dct_filters"], hop_ms=10)
+        self.audio_processor = AudioPreprocessor(n_mels=40, n_dct_filters=config["n_dct_filters"], hop_ms=10)
 
     def collate_fn(self, data):
         x = None
@@ -183,7 +183,7 @@ class SpeechDataset(data.Dataset):
         return len(self.audio_labels) + self.n_silence
 
 class AudioPreprocessor(object):
-    def __init__(self, sr=16000, n_dct_filters=40, n_mels=40, f_max=8000, f_min=0, n_fft=480, hop_ms=10): #f_max = 4000, f_min = 20
+    def __init__(self, sr=16000, n_dct_filters=40, n_mels=20, f_max=8000, f_min=0, n_fft=480, hop_ms=10): #f_max = 4000, f_min = 20
         super().__init__()
         self.n_mels = n_mels
         self.dct_filters = librosa.filters.dct(n_dct_filters, n_mels)
@@ -246,6 +246,7 @@ class AudioPreprocessor(object):
         #data = np.array(data, order="F").reshape(1, 101, 40).astype(np.float32)
         #data = torch.from_numpy(data)
         data = data-128.0
+        
         return data
 
 

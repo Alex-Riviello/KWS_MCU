@@ -45,6 +45,8 @@
 #include "usart.h"
 #include "gpio.h"
 #include "filter_values.h"
+#include "network_weights.h"
+#include "network_parameters.h"
 
 /* USER CODE BEGIN Includes */
 #define ARM_MATH_CM4
@@ -89,18 +91,28 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 uint16_t pixel_color(float coeff_value);
+void draw_square(int16_t x, int16_t y, uint16_t color);
 void compute_logMelCoefficients(int frame_position);
+uint8_t resnet_forward();
 
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+void draw_square(int16_t x, int16_t y, uint16_t color)
+{
+	LCD_DrawPixel(x, y, color);
+	LCD_DrawPixel(x+1, y, color);
+	LCD_DrawPixel(x, y+1, color);
+	LCD_DrawPixel(x+1, y+1, color);
+}
+
 uint16_t pixel_color(float coeff_value)
 {
-	if (coeff_value > 60)
+	if (coeff_value > 64)
 		return MAGENTA;
-	else if (coeff_value > 45)
+	else if (coeff_value > 0)
 		return RED;
-	else if (coeff_value > 30)
+	else if (coeff_value > -64)
 		return YELLOW;
 	else
 		return CYAN;
@@ -151,10 +163,16 @@ void compute_logMelCoefficients(int frame_position)
 			int indice = FILTER_INDICES[j];
 			spectrogram[frame_position*N_MEL + j] = spectrogram[frame_position*N_MEL + j] + MAG_out[indice+k]*FILTERBANK[32*j+k];
 		}
-		spectrogram[frame_position*N_MEL + j] = (float)50*(log10(spectrogram[frame_position*N_MEL + j])-3.0);
+		spectrogram[frame_position*N_MEL + j] = (float)40.0*log(spectrogram[frame_position*N_MEL + j])-380.0;
 		uint16_t color = pixel_color(spectrogram[frame_position*N_MEL + j]);
-		LCD_DrawPixel(j+160, frame_position+70, color);
+		//LCD_DrawPixel(j+160, frame_position+70, color);
+		draw_square(140+2*j, 20 + 2*frame_position, color);
 	}
+}
+
+uint8_t resnet_forward()
+{
+	return 0;
 }
 
 /* USER CODE END 0 */
@@ -224,6 +242,16 @@ int main(void)
 		{
 			frame_pos = 0;
 			LCD_FillScreen(BLACK);
+			
+			/*
+			LCD_SetRotation(0);
+			LCD_SetCursor(0, 0);
+			float pResultMax, pResultMin;
+			uint32_t pIndexMax, pIndexMin;
+			arm_max_f32(&spectrogram[80], N_FRAMES*N_MEL-80, &pResultMax, &pIndexMax);
+			arm_min_f32(&spectrogram[80], N_FRAMES*N_MEL-80, &pResultMin, &pIndexMin);
+			LCD_Printf("Min: %f\nMax: %f", pResultMin, pResultMax);
+			*/
 		}
 		else
 		{

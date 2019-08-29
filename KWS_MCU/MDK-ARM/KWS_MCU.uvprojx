@@ -441,6 +441,16 @@
               <FileType>5</FileType>
               <FilePath>..\Inc\filter_values.h</FilePath>
             </File>
+            <File>
+              <FileName>network_parameters.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\network_parameters.h</FilePath>
+            </File>
+            <File>
+              <FileName>network_weights.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\network_weights.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
