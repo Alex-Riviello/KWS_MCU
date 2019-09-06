@@ -16,20 +16,9 @@ class TCResNet8(nn.Module):
         self.n_labels = 12
         self.n_convs = 6
         self.n_maps = [16, 24, 24, 32, 32, 48, 48]
-        self.n_residual_convs = 3
-        self.residual_n_maps = [16, 24, 32, 48]
 
-        # TC-ResNet8
-        
         # First Convolution Layer
-        self.conv0 = nn.Conv2d(in_channels=1, out_channels=self.n_maps[0], kernel_size=(n_mels, 3), 
-                                padding = (0,1), bias=False)
-
-        # Residual Convolution Layers
-        # self.residual_convs = [nn.Conv2d(self.residual_n_maps[i], self.residual_n_maps[i+1], kernel_size=1, stride=2, bias=False) 
-        #                 for i in range(self.n_residual_convs)]
-        # for i, residual_conv in enumerate(self.residual_convs):
-        #     self.add_module("conv_residual{}".format(i), residual_conv)
+        self.conv0 = nn.Conv2d(in_channels=1, out_channels=self.n_maps[0], kernel_size=(n_mels, 3), padding=(0,1), bias=False)
 
         # Main Convolution Layers
         self.convs = [nn.Conv2d(self.n_maps[i], self.n_maps[i+1], kernel_size=(1, 9), padding=(0, 4), stride=(2 if (i%2 == 0) else 1), bias=False) 
@@ -45,31 +34,19 @@ class TCResNet8(nn.Module):
         x = x.unsqueeze(1)
         x = x[:, :, :, :-1]
 
+        x = torch.ones((1,1,40,100)).type(torch.cuda.FloatTensor)
+        import pdb; pdb.set_trace()
+
         for i in range(self.n_convs + 1): 
+            
             # Conv0 to 12
             y = getattr(self, "conv{}".format(i))(x)
             # Save for first layer
-            # if i == 0: 
-            #     x = F.relu(y)
-            #     old_x = x
-            # # Add residuals every 2 layers
-            # elif ((i > 0) and ((i % 2) == 0)):
-            #     x_res = getattr(self, "conv_residual{}".format(int((i-2)/2)))(old_x)
-
-            #     # x_res = F.relu(getattr(self, "bn_residual{}".format(int((i-2)/2)))(x_res)) 
-            #     x_res = F.relu(x_res)
-
-            #     # x = F.relu(getattr(self, "bn{}".format(i))(y) + x_res)
-            #     x = F.relu(y + x_res)
-            #     old_x = x
-            # else:
-            #     # x = getattr(self, "bn{}".format(i))(y)
-
-            #     x = F.relu(y)
             x = F.relu(y)
 
         x = x.view(x.size(0), x.size(1), -1)
         x = torch.mean(x, 2)
+        import pdb; pdb.set_trace()
         return self.output(x)
  
     def save(self, filename):

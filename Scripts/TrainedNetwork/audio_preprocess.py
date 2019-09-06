@@ -52,6 +52,7 @@ class SpeechDataset(data.Dataset):
         n_unk = len(list(filter(lambda x: x == 1, self.audio_labels)))
         self.n_silence = int(self.silence_prob * (len(self.audio_labels) - n_unk))
         self.audio_processor = AudioPreprocessor(n_mels=40, n_dct_filters=config["n_dct_filters"], hop_ms=10)
+        # self.audio_processor = AudioPreprocessor(n_mels=20, n_dct_filters=config["n_dct_filters"], hop_ms=20)
 
     def collate_fn(self, data):
         x = None
@@ -231,6 +232,7 @@ class AudioPreprocessor(object):
             fmax=self.f_max)
         data[data > 0] = np.log(data[data > 0])
         data = np.array(data, order="F").reshape(1, self.n_mels, 101).astype(np.float32)
+        # data = np.array(data, order="F").reshape(1, self.n_mels, 51).astype(np.float32)
         delta = data.max() - 20.0
         data = data - delta
         data[data<0] = 0

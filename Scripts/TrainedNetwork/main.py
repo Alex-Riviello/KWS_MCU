@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     TRAIN = True
 
-    config = dict(no_cuda=False, n_epochs=30, lr=[0.01, 0.001, 0.0001, 0.0001, 0.00001, 0.000001], schedule=[3000, 6000, 8000, 8500, 9500], batch_size=64, dev_every=1, seed=0,
+    config = dict(no_cuda=False, n_epochs=20, lr=[0.01, 0.001, 0.0001, 0.0001, 0.00001], schedule=[2000, 4000, 5000, 6500], batch_size=64, dev_every=1, seed=0,
         use_nesterov=False, gpu_no=0, cache_size=32768, momentum=0.9, weight_decay=0.001, 
         group_speakers_by_id=True, silence_prob=0.1, noise_prob=0.8, n_dct_filters=40, input_length=16000,
         n_mels=40, timeshift_ms=100, unknown_prob=0.1, train_pct=80, dev_pct=10, test_pct=10,
