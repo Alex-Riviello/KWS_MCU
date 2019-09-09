@@ -27,7 +27,7 @@
 "kws_mcu\stm32f4xx_hal_cortex.o"
 "kws_mcu\stm32f4xx_hal.o"
 "kws_mcu\system_stm32f4xx.o"
-"D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\DSP\Lib\ARM\arm_cortexM4lf_math.lib"
+"C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\DSP\Lib\ARM\arm_cortexM4lf_math.lib"
 "kws_mcu\arm_nn_activations_q15.o"
 "kws_mcu\arm_nn_activations_q7.o"
 "kws_mcu\arm_relu_q15.o"

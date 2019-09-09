@@ -105,6 +105,10 @@ static q7_t ip1_bias[IP1_OUT] = IP1_BIAS;
 
 q7_t img_buffer1[1600];
 q7_t img_buffer2[1600];
+q7_t mean_buffer[48*13];
+q7_t fc_input[48];
+q7_t fc_output[12];
+q7_t softmax_output[12];
 
 
 q15_t bufferA[2*CONV6_IM_CH*CONV1_KER_DIM_X*CONV1_KER_DIM_Y];
@@ -242,13 +246,18 @@ uint8_t TC_ResNet()
 	
 	for(i=0; i<CONV6_OUT_CH; i++){
 		for(j=0; j<CONV6_OUT_DIM_Y; j++){
-			img_buffer2[i] += img_buffer1[j+CONV6_OUT_CH*i];
+			mean_buffer[CONV6_OUT_DIM_Y*i+j] = img_buffer1[CONV6_OUT_CH*j + i];
 		}
 	}
 	
-	arm_fully_connected_q7(img_buffer2, ip1_wt, IP1_DIM, IP1_OUT, IP1_BIAS_LSHIFT, IP1_OUT_RSHIFT, ip1_bias, img_buffer1, bufferA);
+	for(i=0; i<CONV6_OUT_CH; i++){
+		arm_mean_q7(&mean_buffer[CONV6_OUT_DIM_Y*i], CONV6_OUT_DIM_Y ,&fc_input[i]);
+	}
 	
-	arm_softmax_q7(img_buffer1, IP1_OUT, img_buffer2);
+	// Everything upto here works (about same results as Python for an array of 1s as input)
+	arm_fully_connected_q7(fc_input, ip1_wt, IP1_DIM, IP1_OUT, IP1_BIAS_LSHIFT, IP1_OUT_RSHIFT, ip1_bias, fc_output, bufferA);
+	
+	arm_softmax_q7(fc_output, IP1_OUT, softmax_output);
 	
 	
 	return 0;

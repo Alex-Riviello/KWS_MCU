@@ -7,7 +7,7 @@ kws_mcu\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 kws_mcu\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 kws_mcu\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cm4.h
-kws_mcu\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+kws_mcu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cmInstr.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cmFunc.h
@@ -15,7 +15,7 @@ kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cmSimd.h
 kws_mcu\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 kws_mcu\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 kws_mcu\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-kws_mcu\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+kws_mcu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 kws_mcu\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 kws_mcu\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 kws_mcu\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -40,14 +40,14 @@ kws_mcu\main.o: ../Inc/gpio.h
 kws_mcu\main.o: ../Inc/filter_values.h
 kws_mcu\main.o: ../Inc/network_weights.h
 kws_mcu\main.o: ../Inc/network_parameters.h
-kws_mcu\main.o: D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnfunctions.h
-kws_mcu\main.o: D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnsupportfunctions.h
+kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnfunctions.h
+kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnsupportfunctions.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/arm_math.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cm4.h
-kws_mcu\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-kws_mcu\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+kws_mcu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+kws_mcu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/arm_common_tables.h
-kws_mcu\main.o: D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nn_tables.h
+kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nn_tables.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/arm_const_structs.h
 kws_mcu\main.o: ../Inc/LCD.h

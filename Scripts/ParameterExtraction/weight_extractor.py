@@ -109,7 +109,6 @@ class TCResNet8(nn.Module):
         # x = x[:, :, :, :-1]
 
         x = 0.9921875*torch.ones((1,1,40,100)).type(torch.FloatTensor)
-        import pdb; pdb.set_trace()
 
         for i in range(self.n_convs + 1): 
             # Conv0 to 12
@@ -119,7 +118,10 @@ class TCResNet8(nn.Module):
 
         x = x.view(x.size(0), x.size(1), -1)
         x = torch.mean(x, 2)
-        return self.output(x)
+        x = self.output(x)
+        out = F.softmax(x)
+        import pdb; pdb.set_trace()
+        return out
  
     def save(self, filename):
         torch.save(self.state_dict(), filename)
@@ -134,17 +136,6 @@ def write_to_file(w_list):
     for i in range(len(w_list)-2):
         data_string = "#define CONV{}_WT ".format(i)
         data_string += "{"
-        # # Number of channels
-        # for b in range(w_list[i].shape[1]):
-        #     # Width
-        #     for c in range(w_list[i].shape[2]):
-        #         # Height
-        #         for d in range(w_list[i].shape[3]):
-        #             # Number of output channels:
-        #             for a in range(w_list[i].shape[0]):
-        #                 data_string += str(int(w_list[i][a, b, c, d]))
-        #                 data_string += ","
-
         # Example: conv0 -> [16, 1, 40, 3] or [a, b, c, d]
         # Number of output channels
         for a in range(w_list[i].shape[0]):
@@ -162,8 +153,8 @@ def write_to_file(w_list):
     # FC Layer
     data_string = "#define IP1_WT "
     data_string += "{"
-    for b in range(w_list[-2].shape[1]):
-        for a in range(w_list[-2].shape[0]):
+    for a in range(w_list[-2].shape[0]):
+        for b in range(w_list[-2].shape[1]):
             data_string += str(int(w_list[-2][a, b]))
             data_string += ","
     data_string = data_string[:-1]
