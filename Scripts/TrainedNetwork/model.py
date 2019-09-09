@@ -34,9 +34,6 @@ class TCResNet8(nn.Module):
         x = x.unsqueeze(1)
         x = x[:, :, :, :-1]
 
-        x = torch.ones((1,1,40,100)).type(torch.cuda.FloatTensor)
-        import pdb; pdb.set_trace()
-
         for i in range(self.n_convs + 1): 
             
             # Conv0 to 12

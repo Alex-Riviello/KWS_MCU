@@ -1,4 +1,5 @@
 // Conv Layer 1
+
 #define CONV0_IM_DIM_X 40
 #define CONV0_IM_DIM_Y 100
 #define CONV0_IM_CH 1
@@ -11,6 +12,7 @@
 #define CONV0_STRIDE_Y 1
 #define CONV0_OUT_DIM_X 1
 #define CONV0_OUT_DIM_Y 100
+
 
 // Conv Layer 1
 #define CONV1_IM_DIM_X 1

@@ -71,7 +71,9 @@ def f32_to_q7(x):
         abs_x -= 0.0078125
     # Sign bit
     val = val*128
+    val = int(val)
     if x < 0:
+        # val = ((val^0xFF)+1)&0xFF
         val = -val
     # Return fixed-point value
     return val
@@ -103,8 +105,11 @@ class TCResNet8(nn.Module):
         
     def forward(self, x):
         
-        x = x.unsqueeze(1)
-        x = x[:, :, :, :-1]
+        # x = x.unsqueeze(1)
+        # x = x[:, :, :, :-1]
+
+        x = 0.9921875*torch.ones((1,1,40,100)).type(torch.FloatTensor)
+        import pdb; pdb.set_trace()
 
         for i in range(self.n_convs + 1): 
             # Conv0 to 12
@@ -129,14 +134,26 @@ def write_to_file(w_list):
     for i in range(len(w_list)-2):
         data_string = "#define CONV{}_WT ".format(i)
         data_string += "{"
-        # Number of channels
-        for b in range(w_list[i].shape[1]):
-            # Width
-            for c in range(w_list[i].shape[2]):
-                # Height
-                for d in range(w_list[i].shape[3]):
-                    # Number of output channels:
-                    for a in range(w_list[i].shape[0]):
+        # # Number of channels
+        # for b in range(w_list[i].shape[1]):
+        #     # Width
+        #     for c in range(w_list[i].shape[2]):
+        #         # Height
+        #         for d in range(w_list[i].shape[3]):
+        #             # Number of output channels:
+        #             for a in range(w_list[i].shape[0]):
+        #                 data_string += str(int(w_list[i][a, b, c, d]))
+        #                 data_string += ","
+
+        # Example: conv0 -> [16, 1, 40, 3] or [a, b, c, d]
+        # Number of output channels
+        for a in range(w_list[i].shape[0]):
+            # Width (y)
+            for d in range(w_list[i].shape[3]):
+                # Height (x)
+                for c in range(w_list[i].shape[2]):
+                    # Number of input channels
+                    for b in range(w_list[i].shape[1]):
                         data_string += str(int(w_list[i][a, b, c, d]))
                         data_string += ","
         data_string = data_string[:-1]

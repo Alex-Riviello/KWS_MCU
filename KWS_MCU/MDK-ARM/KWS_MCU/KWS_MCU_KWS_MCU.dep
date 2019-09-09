@@ -37,7 +37,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5B7368B1)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5B7368B1)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5B7368B1)
 I (../Inc/glcdfont.h)(0x5BC21326)
-F (../Src/main.c)(0x5D6F1967)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_KWS_MCU-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\DSP\Include-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F446xx -DUSE_HAL_DRIVER -DSTM32F446xx-o kws_mcu\main.o --omf_browse kws_mcu\main.crf --depend kws_mcu\main.d)
+F (../Src/main.c)(0x5D759C55)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_KWS_MCU-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\DSP\Include-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F446xx -DUSE_HAL_DRIVER -DSTM32F446xx-o kws_mcu\main.o --omf_browse kws_mcu\main.crf --depend kws_mcu\main.d)
 I (../Inc/main.h)(0x5D1E7D51)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5B7368B0)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5D1E7D51)
@@ -76,8 +76,8 @@ I (../Inc/tim.h)(0x5D1E7D50)
 I (../Inc/usart.h)(0x5D1E7D50)
 I (../Inc/gpio.h)(0x5D1E7D4F)
 I (../Inc/filter_values.h)(0x5D2F8A50)
-I (../Inc/network_weights.h)(0x5D6F19FD)
-I (../Inc/network_parameters.h)(0x5D6C1ABF)
+I (../Inc/network_weights.h)(0x5D759CBC)
+I (../Inc/network_parameters.h)(0x5D7566F8)
 I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnfunctions.h)(0x5C8ACD3C)
 I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnsupportfunctions.h)(0x5C8ACD3C)
 I (../Drivers/CMSIS/Include/arm_math.h)(0x5D6DCE25)
@@ -328,8 +328,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5B7368B1)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5B7368B1)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5B7368B1)
 F (..\Inc\filter_values.h)(0x5D2F8A50)()
-F (..\Inc\network_parameters.h)(0x5D6C1ABF)()
-F (..\Inc\network_weights.h)(0x5D6F19FD)()
+F (..\Inc\network_parameters.h)(0x5D7566F8)()
+F (..\Inc\network_weights.h)(0x5D759CBC)()
 F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c)(0x5B7368B1)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_KWS_MCU-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\DSP\Include-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\NN\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F446xx -DUSE_HAL_DRIVER -DSTM32F446xx-o kws_mcu\stm32f4xx_hal_adc.o --omf_browse kws_mcu\stm32f4xx_hal_adc.crf --depend kws_mcu\stm32f4xx_hal_adc.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5B7368B0)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5D1E7D51)
