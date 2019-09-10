@@ -896,13 +896,12 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=kws_mcu\startup_stm32f446xx.d -okws_mcu\startup_stm32f446xx.o -
-I.\RTE\_KWS_MCU -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\C
-ore\Include -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\DSP\I
-nclude -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include
- -IC:\Users\Alex\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSI
-S\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UV
-ISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" --predefine="STM32F446xx SET
-A 1" --list=startup_stm32f446xx.lst startup_stm32f446xx.s
+I.\RTE\_KWS_MCU -ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include -ID:\K
+eil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\DSP\Include -ID:\Keil_v5\ARM\PACK\ARM\CMS
+IS\5.5.1\CMSIS\NN\Include -ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.14.0\Drive
+rs\CMSIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefin
+e="__UVISION_VERSION SETA 525" --predefine="_RTE_ SETA 1" --predefine="STM32F44
+6xx SETA 1" --list=startup_stm32f446xx.lst startup_stm32f446xx.s
 
 
 

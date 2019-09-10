@@ -197,6 +197,7 @@ void compute_logMelCoefficients(int frame_position)
 		uint16_t color = pixel_color(spectrogram[frame_position*N_MEL + j]);
 		//LCD_DrawPixel(j+160, frame_position+70, color);
 		draw_square(140+2*j, 20 + 2*frame_position, color);
+		spectrogram[frame_position*N_MEL + j] = (float)0.07*log(spectrogram[frame_position*N_MEL + j]);
 	}
 }
 
@@ -324,6 +325,7 @@ int main(void)
 		
 		//Compute and print spectrogram
 		compute_logMelCoefficients(frame_pos);
+		arm_float_to_q7(spectrogram, q7_spectrogram, N_MEL*N_FRAMES);
 		
 		//Updating frame position
 		if(frame_pos > 100)
@@ -331,7 +333,7 @@ int main(void)
 			frame_pos = 0;
 			LCD_FillScreen(BLACK);
 			
-			/*
+			
 			LCD_SetRotation(0);
 			LCD_SetCursor(0, 0);
 			float pResultMax, pResultMin;
@@ -339,7 +341,7 @@ int main(void)
 			arm_max_f32(&spectrogram[80], N_FRAMES*N_MEL-80, &pResultMax, &pIndexMax);
 			arm_min_f32(&spectrogram[80], N_FRAMES*N_MEL-80, &pResultMin, &pIndexMin);
 			LCD_Printf("Min: %f\nMax: %f", pResultMin, pResultMax);
-			*/
+			
 			TC_ResNet();
 		}
 		else

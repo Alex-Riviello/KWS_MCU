@@ -1,9 +1,9 @@
 kws_mcu\lcd_v2.o: ..\Src\LCD_v2.c
-kws_mcu\lcd_v2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-kws_mcu\lcd_v2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-kws_mcu\lcd_v2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+kws_mcu\lcd_v2.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+kws_mcu\lcd_v2.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+kws_mcu\lcd_v2.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 kws_mcu\lcd_v2.o: ../Inc/LCD.h
-kws_mcu\lcd_v2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+kws_mcu\lcd_v2.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 kws_mcu\lcd_v2.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 kws_mcu\lcd_v2.o: ../Inc/stm32f4xx_hal_conf.h
 kws_mcu\lcd_v2.o: ../Inc/main.h
