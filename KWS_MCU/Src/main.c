@@ -130,6 +130,29 @@ uint8_t TC_ResNet(void);
 
 /* USER CODE BEGIN 0 */
 
+void print_class(q7_t * output_prob)
+{
+	q7_t val_result[1];
+	uint32_t index_result[1];
+	arm_max_q7(output_prob, 12, val_result, index_result);
+	switch(index_result[0])
+	{
+		case 0: LCD_Printf("Silence\r\n"); break;
+		case 1: LCD_Printf("Unknown\r\n"); break;
+		case 2: LCD_Printf("Yes\r\n"); break;
+		case 3: LCD_Printf("No\r\n"); break;
+		case 4: LCD_Printf("Up\r\n"); break;
+		case 5: LCD_Printf("Down\r\n"); break;
+		case 6: LCD_Printf("Left\r\n"); break;
+		case 7: LCD_Printf("Right\r\n"); break;
+		case 8: LCD_Printf("On\r\n"); break;
+		case 9: LCD_Printf("Off\r\n"); break;
+		case 10: LCD_Printf("Stop\r\n"); break;
+		case 11: LCD_Printf("Go\r\n"); break;
+	}
+	
+}
+
 void draw_square(int16_t x, int16_t y, uint16_t color)
 {
 	LCD_DrawPixel(x, y, color);
@@ -140,11 +163,11 @@ void draw_square(int16_t x, int16_t y, uint16_t color)
 
 uint16_t pixel_color(float coeff_value)
 {
-	if (coeff_value > 64)
+	if (coeff_value > 0.5)
 		return MAGENTA;
-	else if (coeff_value > 0)
+	else if (coeff_value > 0.0)
 		return RED;
-	else if (coeff_value > -64)
+	else if (coeff_value > -0.5)
 		return YELLOW;
 	else
 		return CYAN;
@@ -207,10 +230,10 @@ void compute_logMelCoefficients(int frame_position)
 			spectrogram[frame_position*N_MEL + j] = spectrogram[frame_position*N_MEL + j] + MAG_out[indice+k]*FILTERBANK[32*j+k];
 		}
 		//spectrogram[frame_position*N_MEL + j] = (float)40.0*log(spectrogram[frame_position*N_MEL + j])-380.0;
+		spectrogram[frame_position*N_MEL + j] = (float)0.2*log(spectrogram[frame_position*N_MEL + j])-1.6;
 		uint16_t color = pixel_color(spectrogram[frame_position*N_MEL + j]);
 		//LCD_DrawPixel(j+160, frame_position+70, color);
 		draw_square(140+2*j, 20 + 2*frame_position, color);
-		spectrogram[frame_position*N_MEL + j] = (float)0.1*log(spectrogram[frame_position*N_MEL + j])-0.4;
 	}
 }
 
@@ -345,16 +368,12 @@ int main(void)
 		{
 			frame_pos = 0;
 			LCD_FillScreen(BLACK);
-			LCD_SetRotation(0);
+			LCD_SetRotation(2);
 			LCD_SetCursor(0, 0);
-			float pResultMax, pResultMin;
-			uint32_t pIndexMax, pIndexMin;
-			arm_max_f32(&spectrogram[80], N_FRAMES*N_MEL-80, &pResultMax, &pIndexMax);
-			arm_min_f32(&spectrogram[80], N_FRAMES*N_MEL-80, &pResultMin, &pIndexMin);
-			//LCD_Printf("Min: %f\nMax: %f", pResultMin, pResultMax);
-			//printf("Min: %i Max: %i\r\n", (int)pResultMin, (int)pResultMax);
 			arm_float_to_q7(spectrogram, q7_spectrogram, N_MEL*N_FRAMES);
 			TC_ResNet();
+			print_class(softmax_output);
+			LCD_SetRotation(1);
 		}
 		else
 		{

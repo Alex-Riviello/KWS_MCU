@@ -32,7 +32,7 @@
 #define CONV5_OUT_RSHIFT 6
 #define CONV6_BIAS_LSHIFT 0
 #define CONV6_OUT_RSHIFT 5
-#define IP1_BIAS_LSHIFT 7 // Adjust this value
+#define IP1_BIAS_LSHIFT 5 // Adjust this value
 #define IP1_OUT_RSHIFT 6
 
 // Test input
