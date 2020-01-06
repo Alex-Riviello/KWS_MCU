@@ -40,14 +40,14 @@ kws_mcu\main.o: ../Inc/gpio.h
 kws_mcu\main.o: ../Inc/filter_values.h
 kws_mcu\main.o: ../Inc/network_weights.h
 kws_mcu\main.o: ../Inc/network_parameters.h
-kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnfunctions.h
-kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nnsupportfunctions.h
+kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\NN\Include\arm_nnfunctions.h
+kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\NN\Include\arm_nnsupportfunctions.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/arm_math.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 kws_mcu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 kws_mcu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/arm_common_tables.h
-kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include\arm_nn_tables.h
+kws_mcu\main.o: C:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\NN\Include\arm_nn_tables.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 kws_mcu\main.o: ../Drivers/CMSIS/Include/arm_const_structs.h
 kws_mcu\main.o: ../Inc/LCD.h

@@ -896,13 +896,14 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=kws_mcu\startup_stm32f446xx.d -okws_mcu\startup_stm32f446xx.o -
-I.\RTE\_KWS_MCU -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\C
-ore\Include -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\DSP\I
-nclude -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\NN\Include
+I.\RTE\_KWS_MCU -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\C
+ore\Include -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\DSP\I
+nclude -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\NN\Include
  -IC:\Users\Alex\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSI
-S\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UV
-ISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" --predefine="STM32F446xx SET
-A 1" --list=startup_stm32f446xx.lst startup_stm32f446xx.s
+S\Device\ST\STM32F4xx\Include --predefine="__EVAL SETA 1" --predefine="__MICROL
+IB SETA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" 
+--predefine="STM32F446xx SETA 1" --list=startup_stm32f446xx.lst startup_stm32f4
+46xx.s
 
 
 
@@ -2034,4 +2035,4 @@ Symbol: __main
       At line 201 in file startup_stm32f446xx.s
 Comment: __main used once
 2 symbols
-450 symbols in table
+451 symbols in table

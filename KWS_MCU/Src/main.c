@@ -50,7 +50,7 @@
 #include "arm_nnfunctions.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "stdint.h"
 #include "arm_math.h"
 #include "core_cm4.h"
 #include "arm_const_structs.h"
@@ -229,10 +229,8 @@ void compute_logMelCoefficients(int frame_position)
 			int indice = FILTER_INDICES[j];
 			spectrogram[frame_position*N_MEL + j] = spectrogram[frame_position*N_MEL + j] + MAG_out[indice+k]*FILTERBANK[32*j+k];
 		}
-		//spectrogram[frame_position*N_MEL + j] = (float)40.0*log(spectrogram[frame_position*N_MEL + j])-380.0;
 		spectrogram[frame_position*N_MEL + j] = (float)0.2*log(spectrogram[frame_position*N_MEL + j])-1.6;
 		uint16_t color = pixel_color(spectrogram[frame_position*N_MEL + j]);
-		//LCD_DrawPixel(j+160, frame_position+70, color);
 		draw_square(140+2*j, 20 + 2*frame_position, color);
 	}
 }
