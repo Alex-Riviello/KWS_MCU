@@ -484,11 +484,11 @@ ARM Macro Assembler    Page 8
   182 000001B0 00000000        DCD              QUADSPI_IRQHandler ; QuadSPI
   183 000001B4 00000000        DCD              CEC_IRQHandler ; CEC
   184 000001B8 00000000        DCD              SPDIF_RX_IRQHandler ; SPDIF RX
-  185 000001BC 00000000        DCD              I2C4_Event_IRQHandler 
-                                                            ; I2C 4 Event
-  186 000001C0 00000000        DCD              I2C4_Error_IRQHandler ; I2C 4 E
-                                                            rror               
-                                                                      
+  185 000001BC 00000000        DCD              FMPI2C1_EV_IRQHandler 
+                                                            ; FMPI2C Event
+  186 000001C0 00000000        DCD              FMPI2C1_ER_IRQHandler ; FMPI2C 
+                                                            Error              
+                                                                       
   187 000001C4         __Vectors_End
   188 000001C4         
   189 000001C4 000001C4 
@@ -768,9 +768,9 @@ ARM Macro Assembler    Page 12
    [WEAK]
   336 0000001A                 EXPORT           SPDIF_RX_IRQHandler            
    [WEAK]
-  337 0000001A                 EXPORT           I2C4_Event_IRQHandler          
+  337 0000001A                 EXPORT           FMPI2C1_EV_IRQHandler          
    [WEAK]
-  338 0000001A                 EXPORT           I2C4_Error_IRQHandler          
+  338 0000001A                 EXPORT           FMPI2C1_ER_IRQHandler          
    [WEAK]
   339 0000001A         
   340 0000001A         WWDG_IRQHandler
@@ -869,8 +869,8 @@ ARM Macro Assembler    Page 14
   421 0000001A         QUADSPI_IRQHandler
   422 0000001A         CEC_IRQHandler
   423 0000001A         SPDIF_RX_IRQHandler
-  424 0000001A         I2C4_Event_IRQHandler
-  425 0000001A         I2C4_Error_IRQHandler
+  424 0000001A         FMPI2C1_EV_IRQHandler
+  425 0000001A         FMPI2C1_ER_IRQHandler
   426 0000001A E7FE            B                .
   427 0000001C         
   428 0000001C                 ENDP
@@ -895,15 +895,13 @@ ARM Macro Assembler    Page 14
               00000000 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=kws_mcu\startup_stm32f446xx.d -okws_mcu\startup_stm32f446xx.o -
-I.\RTE\_KWS_MCU -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\C
-ore\Include -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\DSP\I
-nclude -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\NN\Include
- -IC:\Users\Alex\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSI
-S\Device\ST\STM32F4xx\Include --predefine="__EVAL SETA 1" --predefine="__MICROL
-IB SETA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" 
---predefine="STM32F446xx SETA 1" --list=startup_stm32f446xx.lst startup_stm32f4
-46xx.s
+erwork --depend=bin_kws_mcu\startup_stm32f446xx.d -obin_kws_mcu\startup_stm32f4
+46xx.o -I.\RTE\_BIN_KWS_MCU -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5
+.6.0\CMSIS\Core\Include -IC:\Users\Alex\AppData\Local\Arm\Packs\Keil\STM32F4xx_
+DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SE
+TA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" --pre
+define="STM32F446xx SETA 1" --list=startup_stm32f446xx.lst startup_stm32f446xx.
+s
 
 
 
@@ -1408,6 +1406,24 @@ Relocatable symbols
       At line 138 in file startup_stm32f446xx.s
       At line 299 in file startup_stm32f446xx.s
 
+FMPI2C1_ER_IRQHandler 0000001A
+
+Symbol: FMPI2C1_ER_IRQHandler
+   Definitions
+      At line 425 in file startup_stm32f446xx.s
+   Uses
+      At line 186 in file startup_stm32f446xx.s
+      At line 338 in file startup_stm32f446xx.s
+
+FMPI2C1_EV_IRQHandler 0000001A
+
+Symbol: FMPI2C1_EV_IRQHandler
+   Definitions
+      At line 424 in file startup_stm32f446xx.s
+   Uses
+      At line 185 in file startup_stm32f446xx.s
+      At line 337 in file startup_stm32f446xx.s
+
 FPU_IRQHandler 0000001A
 
 Symbol: FPU_IRQHandler
@@ -1446,6 +1462,12 @@ Symbol: I2C1_EV_IRQHandler
 
 I2C2_ER_IRQHandler 0000001A
 
+
+
+ARM Macro Assembler    Page 8 Alphabetic symbol ordering
+Relocatable symbols
+
+
 Symbol: I2C2_ER_IRQHandler
    Definitions
       At line 374 in file startup_stm32f446xx.s
@@ -1464,12 +1486,6 @@ Symbol: I2C2_EV_IRQHandler
 
 I2C3_ER_IRQHandler 0000001A
 
-
-
-ARM Macro Assembler    Page 8 Alphabetic symbol ordering
-Relocatable symbols
-
-
 Symbol: I2C3_ER_IRQHandler
    Definitions
       At line 411 in file startup_stm32f446xx.s
@@ -1485,24 +1501,6 @@ Symbol: I2C3_EV_IRQHandler
    Uses
       At line 162 in file startup_stm32f446xx.s
       At line 321 in file startup_stm32f446xx.s
-
-I2C4_Error_IRQHandler 0000001A
-
-Symbol: I2C4_Error_IRQHandler
-   Definitions
-      At line 425 in file startup_stm32f446xx.s
-   Uses
-      At line 186 in file startup_stm32f446xx.s
-      At line 338 in file startup_stm32f446xx.s
-
-I2C4_Event_IRQHandler 0000001A
-
-Symbol: I2C4_Event_IRQHandler
-   Definitions
-      At line 424 in file startup_stm32f446xx.s
-   Uses
-      At line 185 in file startup_stm32f446xx.s
-      At line 337 in file startup_stm32f446xx.s
 
 MemManage_Handler 0000000C
 
@@ -2035,4 +2033,4 @@ Symbol: __main
       At line 201 in file startup_stm32f446xx.s
 Comment: __main used once
 2 symbols
-451 symbols in table
+450 symbols in table
