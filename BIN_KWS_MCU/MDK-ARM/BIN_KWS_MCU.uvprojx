@@ -422,6 +422,11 @@
               <FileType>1</FileType>
               <FilePath>../Src/stm32f4xx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>bnn_funct.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\bnn_funct.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

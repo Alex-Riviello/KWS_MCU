@@ -898,10 +898,10 @@ Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=bin_kws_mcu\startup_stm32f446xx.d -obin_kws_mcu\startup_stm32f4
 46xx.o -I.\RTE\_BIN_KWS_MCU -IC:\Users\Alex\AppData\Local\Arm\Packs\ARM\CMSIS\5
 .6.0\CMSIS\Core\Include -IC:\Users\Alex\AppData\Local\Arm\Packs\Keil\STM32F4xx_
-DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SE
-TA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" --pre
-define="STM32F446xx SETA 1" --list=startup_stm32f446xx.lst startup_stm32f446xx.
-s
+DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="__EVAL SETA 1
+" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 528" --pr
+edefine="_RTE_ SETA 1" --predefine="STM32F446xx SETA 1" --list=startup_stm32f44
+6xx.lst startup_stm32f446xx.s
 
 
 
@@ -2033,4 +2033,4 @@ Symbol: __main
       At line 201 in file startup_stm32f446xx.s
 Comment: __main used once
 2 symbols
-450 symbols in table
+451 symbols in table
