@@ -21,6 +21,7 @@ class FilterCreator():
         return (10**(mel/2595)-1)*700 
 
     def make_mel_filterbank(self):
+		""" Function taken from EDX Speech Recognition Course by Microsoft. """
         lo_mel = self.lin2mel(0) # Base freq = 0 Hz
         hi_mel = self.lin2mel(self.sample_rate_//2) # Max Freq = 8000 Hz (typically)
         mel_freqs = np.linspace(lo_mel, hi_mel, self.num_mel_+2) # Equally spaced out

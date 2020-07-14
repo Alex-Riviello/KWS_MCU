@@ -52,5 +52,3 @@ class TCResNet8(nn.Module):
     def load(self, filename):
         self.load_state_dict(torch.load(filename, map_location=lambda storage, loc: storage))
 
-
-""" https://github.com/ARM-software/ML-KWS-for-MCU/blob/master/Deployment/Quant_guide.md """
