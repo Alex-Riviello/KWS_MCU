@@ -334,15 +334,13 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-	LCD_Begin();
-	HAL_Delay(20);
-	LCD_SetRotation(1);
-	LCD_FillScreen(BLACK);
-	//LCD_Printf("! Hello !");
-	
-	// Enabling ADC and DMA timer
-	HAL_TIM_Base_Start(&htim2);
-	HAL_ADC_Start_DMA(&hadc1, current_audio_input, N_SHIFT);
+  LCD_Begin();
+  HAL_Delay(20);
+  LCD_SetRotation(1);
+  LCD_FillScreen(BLACK);
+  // Enabling ADC and DMA timer
+  HAL_TIM_Base_Start(&htim2);
+  HAL_ADC_Start_DMA(&hadc1, current_audio_input, N_SHIFT);
 
   /* USER CODE END 2 */
 
@@ -359,7 +357,6 @@ int main(void)
 		
 		//Compute and print spectrogram
 		compute_logMelCoefficients(frame_pos);
-		
 		
 		//Updating frame position
 		if(frame_pos > 100)

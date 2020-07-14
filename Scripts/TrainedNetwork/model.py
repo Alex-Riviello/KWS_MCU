@@ -43,7 +43,6 @@ class TCResNet8(nn.Module):
 
         x = x.view(x.size(0), x.size(1), -1)
         x = torch.mean(x, 2)
-        import pdb; pdb.set_trace()
         return self.output(x)
  
     def save(self, filename):
