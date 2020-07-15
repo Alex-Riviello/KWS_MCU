@@ -8,7 +8,7 @@ The model used was TC-ResNet8 from https://arxiv.org/pdf/1904.03814.pdf (with so
 
 ## Details
 
-The project was built using Keil. It requires a licence to sucessfully compile.  
+The project was built using Keil. It requires a license to sucessfully compile.  
 The c source code can be found in ./KWS_MCU/Inc and ./KWS_MCU/Src  
 
 Other useful directories:  
