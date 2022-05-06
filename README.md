@@ -12,6 +12,7 @@ The project was built using Keil. It requires a license to sucessfully compile.
 The c source code can be found in ./KWS_MCU/Inc and ./KWS_MCU/Src  
 
 Other useful directories:  
+./TCResNet_pytorch -> Original TCResNet models implemented in Pytorch
 ./Scripts/TrainedNetwork -> PyTorch model  
 ./Scripts/Preprocessing -> Code to generate Mel_filters  
 ./Scripts/ParameterExtraction -> Code to Extract weights from PyTorch model to fixed-point representations   
