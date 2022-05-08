@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
-import quantize as q
-from layers import *
 
 
 class TCResNet8(nn.Module):
@@ -13,6 +11,7 @@ class TCResNet8(nn.Module):
     def __init__(self, n_mels=40):
         super(TCResNet8, self).__init__()
 
+        self.n_mels = n_mels
         self.n_labels = 12
         self.n_convs = 6
         self.n_maps = [16, 24, 24, 32, 32, 48, 48]
@@ -30,12 +29,10 @@ class TCResNet8(nn.Module):
         
         
     def forward(self, x):
-        
-        x = x.unsqueeze(1)
-        x = x[:, :, :, :-1]
+
+        x = torch.reshape(x, (x.shape[0], 1, self.n_mels, -1))
 
         for i in range(self.n_convs + 1): 
-            
             # Conv0 to 12
             y = getattr(self, "conv{}".format(i))(x)
             # Save for first layer
